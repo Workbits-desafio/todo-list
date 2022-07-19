@@ -159,7 +159,6 @@ body {
 
     background: linear-gradient(152.97deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     border: 0.5px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(42px);
     border-radius: 10px;
 
     min-width: 2rem;
@@ -182,7 +181,7 @@ body {
     height: 1rem;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1rem 1rem #fff;
+    box-shadow: inset 1rem 1rem rgba(103, 9, 223, 1);
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   }
