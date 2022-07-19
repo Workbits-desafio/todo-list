@@ -23,25 +23,33 @@ body {
 }
 
 .blur1 {
-    bottom: -5rem;
-    left: -7rem;
+    bottom: 0;
+    left: -8.25rem;
 }
 
 .blur2 {
-    top: -5rem;
-    right: -7rem;
+    top: -7.0625rem;
+    right: 0;
 }
 
 /* Header */
 
 .header {
     width: 100%;
-    height: 3.6rem;
-    padding: 1.375rem 2rem;
-    margin-bottom: 5rem;
+    height: 5rem;
+    padding: 0 2rem;
+    margin-bottom: 3.625rem;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
 }
 
 .header__logo {
+    width: 2.75rem;
+    height: 2.25rem;
+}
+
+.header__logo-name {
     color: var(--white);
     font-weight: 700;
     font-size: 1.5rem;
@@ -59,7 +67,7 @@ body {
 
 .form-addTask {
     width: 70%;
-    height: 4rem;
+    height: 4.4375rem;
     display: flex;
     justify-content: center;
     position: relative;
@@ -74,14 +82,12 @@ body {
 .input-addtask {
     width: 100%;
     height: 100%;
-    background: 
-    linear-gradient(#222, #222) padding-box,
-    linear-gradient(350deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 36%, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%) border-box;
 
-
-    border: 2px solid transparent;
+    background-color: transparent;
+    border: 0.5px solid #FFFFFF;
+    backdrop-filter: blur(42px);
     border-radius: 16px;
-    backdrop-filter: 18px;
+
     padding: 0 2rem 0 5.3125rem;
 
 
@@ -103,7 +109,14 @@ body {
 
     position: absolute;
     left: 0;
-    margin: 0 0.875rem;
+    margin: 0 1.3125rem 0 0.875rem;
+
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
 }
 
 
@@ -123,24 +136,20 @@ body {
     padding-bottom: 5rem;
 }
 
-.taskList {
+.tasklist-item {
     width: 70%;
     height: auto;
 
     display: flex;
     align-items: center;
 
-    position: relative;
-    padding: 1rem 14px;
+    padding: 1.25rem 14px;
     gap: 1.0625rem;
     
-    background: 
-    linear-gradient(#222, #222) padding-box,
-    linear-gradient(350deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 36%, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%) border-box;
-    border: 2px solid transparent;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(42px);
     border-radius: 16px;
-    color: #fff;
-
 }
 
 .checkbox-input {
@@ -148,12 +157,14 @@ body {
     margin: 0;
     font: inherit;
 
-    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%) border-box;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(42px);
-    
     border-radius: 10px;
+
     min-width: 2rem;
     min-height: 2rem;
+    
     transform: translateY(-0.075rem);
 
     display: flex;
