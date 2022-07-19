@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .form-addTask {
+        width: 85%;
+    }
+
+    .taskList {
+        width: 85%;
+    }
+}
