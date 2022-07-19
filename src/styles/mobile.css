@@ -12,6 +12,12 @@
     .tasklist-item {
         width: 85%;
     }
+
+    .blur1, .blur2 {
+        width: 19rem;
+        height: 19rem;
+    }
+    
 }
 
 @media (max-width: 568px) {
