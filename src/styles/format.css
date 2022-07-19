@@ -1,0 +1,24 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input {
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+::placeholder, :-ms-input-placeholder, ::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+
+
