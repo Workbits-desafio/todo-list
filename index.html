@@ -19,31 +19,33 @@
     </header>
 
     <main class="todo-list">
-        <form method="get" name="taskName" id="taskName" class="form-addTask">
+        <form method="get" name="taskAdd" id="taskAdd" class="form-addTask">
             <button class="submit-task" form="taskName">+</button>
             <input type="text" name="input-taskName" id="input-taskName" class="input-addtask" required title="Adicione uma tarefa!" autocomplete="off" autofocus placeholder="O que você tem planejado para hoje?">
         </form>
         
         <div class="todo-lists">
             <div class="taskList">
-                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()">
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()" class="checkbox-input">
                 <span class="task-name">Passear com o cachorro</span>
             </div>
 
             <div class="taskList">
-                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()">
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()" class="checkbox-input">
                 <span class="task-name">Fazer deploy do bot do Discord</span>
             </div>
 
             <div class="taskList">
-                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()">
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()" class="checkbox-input">
                 <span class="task-name">Levar a filha na escola</span>
             </div>
 
             <div class="taskList">
-                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()">
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="markAsDone()" class="checkbox-input">
                 <span class="task-name">Compartilhar a comunidade da workbits nas redes sociais</span>
             </div>
+
+            
         </div>
     </main>  
 </body>

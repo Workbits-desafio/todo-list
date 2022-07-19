@@ -7,9 +7,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(116.82deg, #0C0C0C 0%, #242424 52.6%, #000000 100%) no-repeat;
-    background-size: 100%;
+    background-size: contain;
     backdrop-filter: blur(500px);
 }
 
@@ -37,9 +37,8 @@ body {
 .header {
     width: 100%;
     height: 3.6rem;
-    padding: 0 2rem;
+    padding: 1.375rem 2rem;
     margin-bottom: 5rem;
-
 }
 
 .header__logo {
@@ -59,7 +58,7 @@ body {
 }
 
 .form-addTask {
-    width: 65%;
+    width: 70%;
     height: 4rem;
     display: flex;
     justify-content: center;
@@ -70,34 +69,37 @@ body {
 
 .input-addtask {
     width: 100%;
-    border-radius: 16px;
     height: 100%;
     background: 
     linear-gradient(#222, #222) padding-box,
     linear-gradient(350deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 36%, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%) border-box;
+
+
     border: 2px solid transparent;
     border-radius: 16px;
     backdrop-filter: 18px;
+    padding: 0 5.3125rem;
+
+
     font-weight: 600;
     font-size: 1.25rem;
-    color: #fff;
-    letter-spacing: 0.5px;
-    border-radius: 16px;
-    padding: 0 5rem;
-
+    color: #FFFFFF;
 }
 
 .submit-task {
-    width: 3rem;
-    height: 3rem;
+    width: 3.125rem;
+    height: 3.125rem;
+
     background: radial-gradient(76.75% 76.75% at 70% 23.25%, #D255DD 0%, #6709DF 100%);
     border-radius: 20px;
+
     font-weight: 700;
-    font-size: 36px;
+    font-size: 2.25rem;
     color: #FFFFFF;
+
     position: absolute;
     left: 0;
-    margin: 10px 14px;
+    margin: 0 0.875rem;
 }
 
 
@@ -107,32 +109,37 @@ body {
 
 .todo-lists {
     width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+
+    row-gap: 1rem;
+
+    padding-bottom: 5rem;
 }
 
 .taskList {
-    width: 65%;
+    width: 70%;
     height: auto;
+
     display: flex;
     align-items: center;
+
     position: relative;
     padding: 1rem 14px;
-    gap: 1rem;
+    gap: 1.0625rem;
     
     background: 
     linear-gradient(#222, #222) padding-box,
     linear-gradient(350deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 36%, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%) border-box;
     border: 2px solid transparent;
     border-radius: 16px;
-    
     color: #fff;
 
 }
 
-input[type="checkbox"] {
+.checkbox-input {
     appearance: none;
     margin: 0;
     font: inherit;
@@ -145,15 +152,16 @@ input[type="checkbox"] {
     height: 2rem;
     transform: translateY(-0.075rem);
 
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  input[type="checkbox"]:hover {
+.checkbox-input:hover {
     cursor: pointer;
   }
 
-  input[type="checkbox"]::before {
+.checkbox-input::before {
     content: "";
     width: 1rem;
     height: 1rem;
@@ -164,17 +172,13 @@ input[type="checkbox"] {
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   }
 
-  input[type="checkbox"]:checked::before {
+.checkbox-input:checked::before {
     transform: scale(1);
   }
 
-.checked {
-    text-decoration: line-through;
-    color: rgba(255, 255, 255, 0.5);
-    transition: 120ms transform ease-in-out;
-}
-
 .task-name {
-        font-weight: 400;
-        font-size: 1.2rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    color: #FFF;
 }
