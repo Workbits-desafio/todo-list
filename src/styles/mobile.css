@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+    .header__logo {
+        padding: 0 1.7rem;
+    }
+
     .form-addTask {
         width: 85%;
     }
