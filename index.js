@@ -1,4 +1,5 @@
 'use strict';
+//teste
 
 let banco = [];
 
