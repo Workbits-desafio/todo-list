@@ -1,5 +1,4 @@
 'use strict';
-//teste
 
 let banco = [];
 
@@ -10,7 +9,7 @@ const criarItem = (tarefa, status, indice) => {
     const item = document.createElement('div');
     item.classList.add('tasklist-item');
     item.innerHTML = `
-        <input type="checkbox" name="checkbox" id="checkbox" onclick="${status}" class="checkbox-input">
+        <input type="checkbox" name="checkbox" id="checkbox" ${status} class="checkbox-input" data-indice=${indice}>
         <span class="task-name">${tarefa}</span>
     `;
     document.getElementById('todo-lists').appendChild(item);
