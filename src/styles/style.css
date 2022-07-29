@@ -197,6 +197,34 @@ body {
     color: #FFF;
 }
 
-.line-through {
-    text-decoration: line-through;
+.tasklist-item .actions {
+	display: flex;
+	align-items: center;
+}
+
+.tasklist-item .actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: #FFF;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+
+.tasklist-item .actions button:hover {
+	opacity: 0.75;
+}
+
+.tasklist-item .actions .edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+}
+
+.tasklist-item .actions .delete {
+	background-color: var(--danger);
+}
+
+.tasklist-item.done span input {
+	text-decoration: line-through;
+	color: var(--grey);
 }
