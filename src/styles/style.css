@@ -136,12 +136,20 @@ body {
     padding-bottom: 5rem;
 }
 
+.main-task {
+    width: 85%;
+    display: flex;
+    gap: 1.0625rem;
+    align-items: center;
+}
+
 .tasklist-item {
     width: 70%;
     height: auto;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     padding: 1.25rem 14px;
     gap: 1.0625rem;
@@ -195,4 +203,46 @@ body {
     font-size: 1.25rem;
     line-height: 1.875rem;
     color: #FFF;
+    width: 94%;
+    word-wrap: break-word;
+}
+
+.tasklist-item .actions {
+	display: flex;
+	align-items: center;
+    justify-self: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 17%;
+    gap: 0.5rem;
+}
+
+.tasklist-item .actions button {
+	color: #FFF;
+	cursor: pointer;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
+}
+
+.tasklist-item .actions button:hover {
+	background: radial-gradient(76.75% 76.75% at 70% 23.25%, #D255DD 0%, #6709DF 100%);
+    border: none;
+}
+
+.tasklist-item .actions .edit {
+	background-color: transparent;
+}
+
+.tasklist-item .actions .delete {
+	background-color: transparent;
+}
+
+.tasklist-item.done span input {
+	text-decoration: line-through;
+	color:#737373;
 }

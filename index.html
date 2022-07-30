@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Super ToDo</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="src/assets/favicon.ico">
 
     <link rel="stylesheet" href="./src/styles/style.css">
     <link rel="stylesheet" href="./src/styles/format.css">
     <link rel="stylesheet" href="./src/styles/mobile.css">
 </head>
 <body>
-   
+    
     <div class="blur1"></div>
     <div class="blur2"></div>
 
@@ -23,13 +26,22 @@
     <main class="todo-list">
         <form method="get" name="taskAdd" id="taskAdd" class="form-addTask">
             <button class="submit-task" form="taskAdd">+</button>
-            <input type="text" name="input-taskName" id="input-taskName" class="input-addtask" required title="Adicione uma tarefa!" autocomplete="off" autofocus placeholder="O que você tem planejado para hoje?">
+            <input 
+                type="text" 
+                name="input-taskName" 
+                id="input-taskName" 
+                class="input-addtask" 
+                required title="Adicione uma tarefa!" 
+                autocomplete="off" 
+                autofocus placeholder="O que você tem planejado para hoje?"
+            />
         </form>
         
         <div class="todo-lists" id="todo-lists">
             
         </div>
     </main>  
+
     <script src="index.js"></script>
 </body>
 </html>
