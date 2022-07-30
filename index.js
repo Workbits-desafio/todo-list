@@ -1,57 +1,118 @@
-'use strict';
+window.addEventListener('load', () => {
+	todos = JSON.parse(localStorage.getItem('todos')) || [];
+	const newTodoForm = document.querySelector('#taskAdd');
+    const inputTask = document.querySelector('#input-taskName');
 
-let banco = [];
+	newTodoForm.addEventListener('submit', e => {
+		e.preventDefault();
 
-const getBanco = () => JSON.parse(localStorage.getItem ('todo-lists')) ?? [];
-const setBanco = (banco) => localStorage.setItem ('todo-lists', JSON.stringify(banco));
 
-const criarItem = (tarefa, status, indice) => {
-    const item = document.createElement('div');
-    item.classList.add('tasklist-item');
-    item.innerHTML = `
-        <input type="checkbox" name="checkbox" id="checkbox" onclick="${status}" class="checkbox-input">
-        <span class="task-name">${tarefa}</span>
-    `;
-    document.getElementById('todo-lists').appendChild(item);
-}
+        const todo = { 
+            content: inputTask.value,
+            done: false,
+            createdAt: new Date().getTime()
+        }
 
-const limparTarefas = () => {
-    const todoList = document.getElementById('todo-lists');
-    while (todoList.firstChild) {
-        todoList.removeChild(todoList.lastChild);
-    }
-}
+        todos.push(todo);
 
-const atualizarTela = () => {
-    limparTarefas();
-    const banco = getBanco(); 
-    banco.forEach ( (item, indice) => criarItem (item.tarefa, item.status, indice));
-}
+        localStorage.setItem('todos', JSON.stringify(todos));
 
-const inserirItem = (evento) => {
-    const tecla = evento.key;
-    const texto = evento.target.value;
-    if (tecla === 'Enter'){
-        const banco = getBanco();
-        banco.push ({'tarefa': texto, 'status': ''});
-        setBanco(banco);
-        atualizarTela();
-        evento.target.value = '';
-    }
-}
+        e.target.reset();
 
-const removerItem = (indice) => {
-    const banco = getBanco();
-    banco.splice (indice, 1);
-    setBanco(banco);
-    atualizarTela();
-}
+        displayTodos();
+	});
 
-const atualizarItem = (indice) => {
-    const banco = getBanco();
-    banco[indice].status = banco[indice].status === '' ? 'checked' : '';
-    setBanco(banco);
-    atualizarTela();
+    displayTodos();
+});
+
+function displayTodos() {
+    const todoLists = document.querySelector('#todo-lists');
+
+    todoLists.innerHTML = ''
+
+    todos.forEach(todo => {
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('tasklist-item');
+
+        const maintask = document.createElement('div');
+        maintask.classList.add('main-task')
+
+        const input = document.createElement('input');
+        const p = document.createElement('p');
+        p.classList.add('task-name')
+
+        const actions = document.createElement('div');
+        const edit = document.createElement('button');
+        const deleteButton = document.createElement('button');
+
+        input.type = 'checkbox';
+        input.checked = todo.done;
+        input.classList.add('checkbox-input');
+        actions.classList.add('actions');
+        edit.classList.add('edit');
+        deleteButton.classList.add('delete');
+
+        p.innerHTML = `${todo.content}`;
+
+        edit.innerHTML = '<img src="./src/assets/edit.svg" />';
+        deleteButton.innerHTML = '<img src="./src/assets/trash-alt.svg" />';
+
+        todoItem.appendChild(maintask)
+        maintask.appendChild(input);
+        maintask.appendChild(p);
+        actions.appendChild(edit);
+        actions.appendChild(deleteButton);
+        todoItem.appendChild(actions);
+    
+        todoLists.appendChild(todoItem);
+
+        if (todo.done) {
+            todoItem.classList.add('done');
+        }
+
+        input.addEventListener('click', e => {
+            todo.done = e.target.checked;
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            if (todo.done) {
+                todoItem.classList.add('done');
+            } else {
+                todoItem.classList.remove('done');
+            }
+
+            displayTodos();
+        });
+
+        edit.addEventListener('click', e => {
+            editWorking(todo.content)
+            localStorage.setItem('todos', JSON.stringify(todos));
+            displayTodos();
+        });
+
+        function editWorking(){
+
+            if(todoItem.classList.contains('done')) {
+                alert('Não é possível alterar sua tarefa, pois ela está marcada como pronta!')
+            } else {
+                let editValue = prompt('Edite sua tarefa', todo.content);
+                if(editValue !== null) {
+                    todo.content = editValue;
+                }
+            }
+        }
+
+        deleteButton.addEventListener('click', e => {
+
+            let confirmDelete = confirm('Você tem certeza que deseja deletar a seguinte tarefa: ' + todo.content)
+            if(confirmDelete) {
+                todos = todos.filter(t => t != todo);
+                localStorage.setItem('todos', JSON.stringify(todos));
+                displayTodos();
+            } 
+
+        })
+
+    });
 }
 
 const clickItem = (evento) => {
@@ -66,7 +127,38 @@ const clickItem = (evento) => {
     }
 }
 
-document.getElementById('taskAdd').addEventListener('keypress', inserirItem);
-document.getElementById('todo-lists').addEventListener('click', clickItem);
+// document.getElementById('taskAdd').addEventListener('keypress', inserirItem);
+// document.getElementById('todo-lists').addEventListener('click', clickItem);
 
-atualizarTela();
+// atualizarTela();
+
+console.log(navigator.onLine);
+
+// WHEN CONNECTION IS ONLINE AGAIN
+window.addEventListener("online", () => {
+    document.querySelector(".status-color").classList.remove("off");
+    document.querySelector(".status-color").classList.add("on");
+    document.querySelector(".toast-title").innerHTML = "Conexão restaurada";
+    document.querySelector(".toast-info").innerHTML = "Seus dados estão salvos offline";
+    document.querySelector(".toast").classList.add("active");
+    // CLOSING TOAST
+    setTimeout(() => {
+        // alert(".");
+        document.querySelector(".toast").classList.remove("active");
+        document.querySelector(".toast").classList.add("off");
+    }, 10 * 1000);
+});
+// WHEN CONNECTION IS OFFLINE
+window.addEventListener("offline", () => {
+    document.querySelector(".status-color").classList.remove("on");
+    document.querySelector(".status-color").classList.add("off");
+    document.querySelector(".toast-title").innerHTML = "Conexão perdida";
+    document.querySelector(".toast-info").innerHTML = "Seus dados estão salvos offline";
+    document.querySelector(".toast").classList.add("active");
+    // CLOSING TOAST
+    setTimeout(() => {
+        // alert(".");
+        document.querySelector(".toast").classList.remove("active");
+        document.querySelector(".toast").classList.add("off");
+    }, 10 * 1000);
+});
