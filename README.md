@@ -35,7 +35,7 @@ O que será avaliado?
 O clá vencedor levará 5000XP para cada membro.
 Boa sorte 🚀
 
-Co-authored-by: geisondossantos <geison_bf@hotmail.com>
-Co-authored-by: davirezendemota <rezendemota.davi@gmail.com>
-Co-authored-by: Gabriel Esteves <38438278+ichbingabe@users.noreply.github.com>
-Co-authored-by: Iury <iurysena74@gmail.com>
+Co-authored-by: geisondossantos 
+Co-authored-by: davirezendemota
+Co-authored-by: Gabriel Esteves
+Co-authored-by: Iury
