@@ -242,7 +242,7 @@ body {
 	background-color: transparent;
 }
 
-.tasklist-item.done span input {
+.tasklist-item.done p {
 	text-decoration: line-through;
 	color:#737373;
 }
