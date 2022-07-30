@@ -34,8 +34,13 @@ function displayTodos() {
         const todoItem = document.createElement('div');
         todoItem.classList.add('tasklist-item');
 
+        const maintask = document.createElement('div');
+        maintask.classList.add('main-task')
+
         const input = document.createElement('input');
-        const span = document.createElement('span');
+        const p = document.createElement('p');
+        p.classList.add('task-name')
+
         const actions = document.createElement('div');
         const edit = document.createElement('button');
         const deleteButton = document.createElement('button');
@@ -47,19 +52,14 @@ function displayTodos() {
         edit.classList.add('edit');
         deleteButton.classList.add('delete');
 
-        span.innerHTML = `
-            <input 
-                type="text" 
-                value="${todo.content}" 
-                class="task-name" 
-                style="background-color:rgba(0, 0, 0, 0)"
-                readonly
-            />`;
-        edit.innerHTML = 'Editar';
-        deleteButton.innerHTML = 'Deletar';
+        p.innerHTML = `${todo.content}`;
 
-        todoItem.appendChild(input);
-        todoItem.appendChild(span);
+        edit.innerHTML = '<img src="./src/assets/edit.svg" />';
+        deleteButton.innerHTML = '<img src="./src/assets/trash-alt.svg" />';
+
+        todoItem.appendChild(maintask)
+        maintask.appendChild(input);
+        maintask.appendChild(p);
         actions.appendChild(edit);
         actions.appendChild(deleteButton);
         todoItem.appendChild(actions);
@@ -84,7 +84,7 @@ function displayTodos() {
         });
 
         edit.addEventListener('click', e => {
-            const input = span.querySelector('input');
+            /*const input = span.querySelector('input');
             input.removeAttribute('readonly');
             input.focus();
             input.addEventListener('blur', e => {
@@ -92,13 +92,34 @@ function displayTodos() {
                 todo.content = e.target.value;
                 localStorage.setItem('todos', JSON.stringify(todos));
                 displayTodos();
-            });
-        });
+            });*/
 
-        deleteButton.addEventListener('click', e => {
-            todos = todos.filter(t => t != todo);
+            editWorking(todo.content)
             localStorage.setItem('todos', JSON.stringify(todos));
             displayTodos();
+        });
+
+        function editWorking(){
+
+            if(todoItem.classList.contains('done')) {
+                alert('Não é possível alterar sua tarefa, pois ela está marcada como pronta!')
+            } else {
+                let editValue = prompt('Edite sua tarefa', todo.content);
+                if(editValue !== null) {
+                    todo.content = editValue;
+                }
+            }
+        }
+
+        deleteButton.addEventListener('click', e => {
+
+            let confirmDelete = confirm('Você tem certeza que deseja deletar a seguinte tarefa: ' + todo.content)
+            if(confirmDelete) {
+                todos = todos.filter(t => t != todo);
+                localStorage.setItem('todos', JSON.stringify(todos));
+                displayTodos();
+            } 
+
         })
 
     });
