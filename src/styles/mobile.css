@@ -31,8 +31,23 @@
         height: 2.8rem;
     }
 
+    .main-task {
+        width: 75%;
+    }
+
     .task-name {
         font-size: 1rem;
+    }
+
+    
+}
+
+@media (max-width: 459px) {
+    .tasklist-item .actions {
+        width: 24%;
+    }
+    .tasklist-item .actions button img {
+        margin-top: 2px;
     }
 }
 
@@ -75,6 +90,10 @@
 
     .task-name {
         font-size: 0.9rem;
+    }
+    
+    .main-task {
+        width: 65%;
     }
 }
 
