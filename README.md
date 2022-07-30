@@ -1,7 +1,5 @@
 # Desafio de Julho de 2022!
 
-Colaboradores do desafio:
-
 Uma startup quer revolucionar o mercado de aplicativos de To-do e escolheu o seu time para criar essa obra de arte que vai revolucionar a indústria.
 
 O seu cliente enviou um link para uma tela no Figma com o design revolucionário do aplicativo, que vai ser web:
@@ -34,8 +32,3 @@ O que será avaliado?
 
 O clá vencedor levará 5000XP para cada membro.
 Boa sorte 🚀
-
-Co-authored-by: geisondossantos 
-Co-authored-by: davirezendemota
-Co-authored-by: Gabriel Esteves
-Co-authored-by: Iury
