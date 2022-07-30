@@ -127,7 +127,38 @@ const clickItem = (evento) => {
     }
 }
 
-document.getElementById('taskAdd').addEventListener('keypress', inserirItem);
-document.getElementById('todo-lists').addEventListener('click', clickItem);
+// document.getElementById('taskAdd').addEventListener('keypress', inserirItem);
+// document.getElementById('todo-lists').addEventListener('click', clickItem);
 
-atualizarTela();
+// atualizarTela();
+
+console.log(navigator.onLine);
+
+// WHEN CONNECTION IS ONLINE AGAIN
+window.addEventListener("online", () => {
+    document.querySelector(".status-color").classList.remove("off");
+    document.querySelector(".status-color").classList.add("on");
+    document.querySelector(".toast-title").innerHTML = "Conexão restaurada";
+    document.querySelector(".toast-info").innerHTML = "Seus dados estão salvos offline";
+    document.querySelector(".toast").classList.add("active");
+    // CLOSING TOAST
+    setTimeout(() => {
+        // alert(".");
+        document.querySelector(".toast").classList.remove("active");
+        document.querySelector(".toast").classList.add("off");
+    }, 10 * 1000);
+});
+// WHEN CONNECTION IS OFFLINE
+window.addEventListener("offline", () => {
+    document.querySelector(".status-color").classList.remove("on");
+    document.querySelector(".status-color").classList.add("off");
+    document.querySelector(".toast-title").innerHTML = "Conexão perdida";
+    document.querySelector(".toast-info").innerHTML = "Seus dados estão salvos offline";
+    document.querySelector(".toast").classList.add("active");
+    // CLOSING TOAST
+    setTimeout(() => {
+        // alert(".");
+        document.querySelector(".toast").classList.remove("active");
+        document.querySelector(".toast").classList.add("off");
+    }, 10 * 1000);
+});
